@@ -20,3 +20,26 @@ poetry install
 ```
 poetry run python3 main.py
 ```
+
+## Library
+最後はCIで実装するつもりですが、ローカルで実行できるものには以下のものがあります。
+
+- mypy
+
+type hintsが無いとエラーを出してくれます。
+
+ライブラリのimportエラーが発生するので以下のコマンドでtype hintsのみ検証できます。
+
+```
+mypy --strict --ignore-missing-imports FILENAME
+```
+
+## Architecture
+- Provider
+  - 座標だったり接近率だったり計算結果を提供する
+- render
+  - デバッグ時の描画処理を実装する
+- util
+  - 定数など
+- test
+  - UnitTest等の実装    
