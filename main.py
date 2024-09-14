@@ -1,5 +1,5 @@
 import cv2
-from model.image_coordinate_model_provider import ImageCoordinateProvider
+from provider.image_coordinate_provider import ImageCoordinateProvider
 from render.image_render import ImageRenderer
 from util.green_hsv_ranges import LOWER_GREEN, UPPER_GREEN
 
