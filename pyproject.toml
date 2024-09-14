@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "nagoyatv-hackathon-image-recognition"
+version = "0.1.0"
+description = ""
+authors = ["skip"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+opencv-python = "^4.10.0.84"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
