@@ -1,8 +1,9 @@
 import cv2
 import numpy as np
+from typing import List, Tuple
 
 class ImageCoordinateProvider:
-    def __init__(self, lower_color_range, upper_color_range):
+    def __init__(self, lower_color_range: Tuple[int, int, int], upper_color_range: Tuple[int, int, int]):
         """
         初期化
         :param lower_color_range: 色検出のためのHSVの下限値
@@ -11,7 +12,7 @@ class ImageCoordinateProvider:
         self.lower_color_range = lower_color_range
         self.upper_color_range = upper_color_range
 
-    def get_coordinates(self, frame):
+    def get_coordinates(self, frame: np.ndarray) -> List[Tuple[int, int, int, int]]:
         """
         画像内の指定された色の領域の座標を検出し、矩形領域の座標を返す
         :param frame: 画像フレーム（BGR形式）
@@ -27,7 +28,7 @@ class ImageCoordinateProvider:
         contours, _ = cv2.findContours(mask, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
 
         # 検出された座標を保存するリスト
-        coordinates = []
+        coordinates: List[Tuple[int, int, int, int]] = []
 
         # 輪郭に対して座標を取得
         for contour in contours:
