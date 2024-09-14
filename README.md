@@ -30,8 +30,19 @@ type hintsが無いとエラーを出してくれます。
 
 ライブラリのimportエラーが発生するので以下のコマンドでtype hintsのみ検証できます。
 
+
 ```
 mypy --strict --ignore-missing-imports FILENAME
+```
+
+- flake8
+
+未使用のコードや暗黙的なエラーを見つけてくれます。
+
+オプションは自由にしてくだ
+
+```
+flake8 --ignore E501
 ```
 
 ## Architecture
