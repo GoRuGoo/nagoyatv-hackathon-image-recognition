@@ -1,7 +1,9 @@
 import cv2
+import numpy as np
+from typing import List, Tuple
 
 class ImageRenderer:
-    def __init__(self, color=(0, 255, 0), thickness=2):
+    def __init__(self, color: Tuple[int, int, int] = (0, 255, 0), thickness: int = 2):
         """
         初期化
         :param color: 矩形の色 (BGR形式)
@@ -10,7 +12,7 @@ class ImageRenderer:
         self.color = color
         self.thickness = thickness
 
-    def render_rectangles(self, frame, coordinates):
+    def render_rectangles(self, frame: np.ndarray, coordinates: List[Tuple[int, int, int, int]]) -> np.ndarray:
         """
         フレームに矩形を描画する
         :param frame: 画像フレーム（BGR形式）
