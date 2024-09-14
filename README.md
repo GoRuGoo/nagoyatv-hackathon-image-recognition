@@ -42,7 +42,7 @@ mypy --strict --ignore-missing-imports FILENAME
 オプションは自由にしてくだ
 
 ```
-flake8 --ignore E501
+flake8
 ```
 
 ## Architecture
