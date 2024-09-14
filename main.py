@@ -1,5 +1,6 @@
 import cv2
 from model.image_coordinate_model_provider import ImageCoordinateProvider
+from render.image_render import ImageRenderer
 
 def main():
     # 緑色のHSV範囲を定義
@@ -8,6 +9,9 @@ def main():
 
     # ImageCoordinateProviderクラスのインスタンスを作成
     coordinate_provider = ImageCoordinateProvider(lower_green, upper_green)
+
+    # ImageRendererクラスのインスタンスを作成
+    renderer = ImageRenderer()
 
     # カメラから映像を取得
     cap = cv2.VideoCapture(0)
@@ -22,9 +26,7 @@ def main():
         coordinates = coordinate_provider.get_coordinates(frame)
 
         # 座標に基づいて矩形を描画
-        for (x, y, w, h) in coordinates:
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-            print(f"緑色の座標: x={x}, y={y}, w={w}, h={h}")
+        frame = renderer.render_rectangles(frame, coordinates)
 
         # フレームを表示
         cv2.imshow("Frame", frame)
