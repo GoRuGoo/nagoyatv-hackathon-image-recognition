@@ -228,6 +228,17 @@ numpy = [
 ]
 
 [[package]]
+name = "pigpio"
+version = "1.78"
+description = "Raspberry Pi GPIO module"
+optional = false
+python-versions = "*"
+files = [
+    {file = "pigpio-1.78-py2.py3-none-any.whl", hash = "sha256:81e46f640c4e6342881fa9bbe290dbcd4fc179619dc6591e57a9d4a084dc49fa"},
+    {file = "pigpio-1.78.tar.gz", hash = "sha256:91efa50e4990649da97408a384782d6ccf58342fc59cdfe21ed7a42911569975"},
+]
+
+[[package]]
 name = "pycodestyle"
 version = "2.12.1"
 description = "Python style guide checker"
@@ -274,4 +285,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "5b0cdf39a6c43467572faeb48111493fafb394720bd38ee7c798c74148020eff"
+content-hash = "80f2cdb5a60da086905a84290f37b74bb5083912f0afa371a73d65d6192ab938"
