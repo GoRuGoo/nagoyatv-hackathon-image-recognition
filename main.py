@@ -1,14 +1,15 @@
 import cv2
-from provider.image_coordinate_provider import ImageCoordinateProvider
-from render.image_render import ImageRenderer
-from util.green_hsv_ranges import LOWER_GREEN, UPPER_GREEN
+from render.image_render import CircleRender
+from util.yellow_hsv_ranges import LOWER_YELLOW, UPPER_YELLOW
+
+from provider.circle_coordinate_provider import CircleCoordinateProvider
+
 
 def main():
-    # 座標提供用のクラスのインスタンスを生成
-    coordinate_provider = ImageCoordinateProvider(LOWER_GREEN, UPPER_GREEN)
+    circle_coordinate_provider = CircleCoordinateProvider()
 
     # 描画用のクラスのインスタンスを生成
-    renderer = ImageRenderer()
+    render = CircleRender()
 
     cap = cv2.VideoCapture(0)
 
@@ -17,19 +18,22 @@ def main():
         if not ret:
             break
 
-        # 座標を取得
-        coordinates = coordinate_provider.get_coordinates(frame)
+        mask = circle_coordinate_provider.getMask(LOWER_YELLOW, UPPER_YELLOW, frame)
 
-        # 座標に基づいて矩形を描画
-        frame = renderer.render_rectangles(frame, coordinates)
+        center, radius = circle_coordinate_provider.getCorners(mask, 50)
 
-        cv2.imshow("Frame", frame)
+        radius_frame = cv2.circle(frame, center, radius, (0, 255, 0), 2)
+
+        radius_frame = render.draw_circle(frame, center, radius)
+
+        cv2.imshow("radius_frame", radius_frame)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             break
 
     cap.release()
     cv2.destroyAllWindows()
+
 
 if __name__ == "__main__":
     main()
