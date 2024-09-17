@@ -1,5 +1,9 @@
 # nagoyatv-hackathon-image-recognition
 
+
+### こちらは途中で使わなくなりましたので開発Stopしています。
+
+
 ## Overview
 [名古屋テレビ主催 全国学生対抗SFプロトタイピングハッカソン Electric Sheep](https://www.nagoyatv.com/hackathon-electricsheep/)
 
